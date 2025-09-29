@@ -25,4 +25,5 @@ urlpatterns = [
     # path('contact',views.contact, name='contact'),
     path('books/', include("books.urls")),
     path('journals/', include('journals.urls')),
+    path('papers/', include('papers.urls')),
 ]
