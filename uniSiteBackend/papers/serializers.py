@@ -5,7 +5,7 @@ from .models import Subject, Resource
 class SubjectListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subject
-        fields = ["subject_title", "description", "slug"]
+        fields = ["subject_title", "slug"]
 
 
 class ResourceSerializer(serializers.ModelSerializer):
@@ -19,7 +19,7 @@ class SubjectDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Subject
-        fields = ["subject_title", "description", "slug", "resources"]
+        fields = ["subject_title", "slug", "resources"]
 
     def get_resources(self, obj):
         grouped = {key: [] for key, _ in Resource.RESOURCE_TYPES}
