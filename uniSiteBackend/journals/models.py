@@ -14,7 +14,7 @@ class Journal(models.Model):
     read_time = models.CharField(max_length=50, blank=True, null=True)
     excerpt = models.TextField()
     content = models.TextField()  # Store blog content (Markdown/HTML)
-    cover_image_url = models.CharField(max_length=300)  # Google Drive or other links
+    cover_image_url = models.CharField(max_length=300, blank=True, null=True)  # Google Drive or other links
     tags = models.CharField(max_length=100, blank=True, null=True)
     slug = models.SlugField(unique=True)
     likes = models.PositiveIntegerField(default=0)

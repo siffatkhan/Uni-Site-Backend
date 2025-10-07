@@ -23,7 +23,7 @@ def contact_view(request):
             # print(port)
 
             # Email body
-            msg = MIMEText(f"From: {name} <{email}>\n\n{message}")
+            msg = MIMEText(f"From: {name} \n<{email}>\n\n{message}")
             msg["Subject"] = f"New message from {name}"
             msg["From"] = email
             msg["To"] = email
