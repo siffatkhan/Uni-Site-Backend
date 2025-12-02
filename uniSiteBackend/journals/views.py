@@ -20,7 +20,7 @@ class FeaturedJournalView(RetrieveAPIView):
 
     def get_object(self):
         # Return the first featured journal
-        return Journal.objects.filter(is_featured=True).first()
+        return Journal.objects.filter(is_featured_homepage=True).first()
 
     def get(self, request, *args, **kwargs):
         journal = self.get_object()

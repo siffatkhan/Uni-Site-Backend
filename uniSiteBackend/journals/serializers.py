@@ -5,13 +5,20 @@ from .models import Journal
 class JournalListSerializer(serializers.ModelSerializer):
     class Meta:
         model=Journal
-        fields=['id','cover_image_url','title','slug','date','tags','read_time','excerpt','author','likes','is_featured']
+        fields=['id','title','slug','date','tags','read_time','excerpt','author','likes','is_featured_homepage']
 
 class JournalDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model=Journal
-        fields=['cover_image_url','title','content','slug','date','excerpt','read_time','author','department','tags','status','batch','ig_username','li_username']
+        fields=['title','content','slug','date','excerpt','read_time','author','department','tags','status','batch']
+        # fields=['cover_image_url','title','content','slug','date','excerpt','read_time','author','department','tags','status','batch','ig_username','li_username']
     
+
+
+
+
+
+
 
 # Serializers are like translators. 
 # They take your Django models (Journal objects) and 

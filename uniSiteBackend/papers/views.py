@@ -5,7 +5,7 @@ from .serializers import SubjectListSerializer, SubjectDetailSerializer
 
 # List all subjects
 class SubjectListView(generics.ListAPIView):
-    queryset = Subject.objects.all()
+    queryset = Subject.objects.all().order_by("subject_title")
     serializer_class = SubjectListSerializer
 
 

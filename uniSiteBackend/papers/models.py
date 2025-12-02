@@ -21,7 +21,7 @@ class Resource(models.Model):
         ("quiz", "Quiz"),
         ("assignment", "Assignment"),
         ("book", "Book"),
-        ("notes", "Note"),
+        ("notes", "Notes"),
         ("other", "Other"),
     ]
 
