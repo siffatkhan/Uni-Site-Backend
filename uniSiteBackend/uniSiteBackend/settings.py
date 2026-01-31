@@ -27,7 +27,12 @@ SECRET_KEY =env("SECRET_KEY")
 DEBUG = env("DJANGO_DEBUG")
 # print(DEBUG)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "uni-site-backend-production.up.railway.app",   # Railway assigned URL
+    "127.0.0.1",                      # optional for local testing
+    "localhost",                       # optional for local testing
+]
+
 
 
 
@@ -201,7 +206,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
