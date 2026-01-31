@@ -5,6 +5,7 @@ import json
 import smtplib
 from email.mime.text import MIMEText
 
+
 @csrf_exempt
 def contact_view(request):
     if request.method == "POST":

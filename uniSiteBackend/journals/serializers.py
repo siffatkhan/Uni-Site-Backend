@@ -6,11 +6,13 @@ class JournalListSerializer(serializers.ModelSerializer):
     class Meta:
         model=Journal
         fields=['id','title','slug','date','tags','read_time','excerpt','author','likes','is_featured_homepage']
+        read_only_fields = fields
 
 class JournalDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model=Journal
         fields=['title','content','slug','date','excerpt','read_time','author','department','tags','status','batch']
+        read_only_fields = fields
         # fields=['cover_image_url','title','content','slug','date','excerpt','read_time','author','department','tags','status','batch','ig_username','li_username']
     
 

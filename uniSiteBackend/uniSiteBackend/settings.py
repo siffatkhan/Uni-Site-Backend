@@ -16,6 +16,8 @@ env = environ.Env(
 )
 environ.Env.read_env(os.path.join(BASE_DIR,".env"))
 
+import corsheaders
+print("corsheaders loaded:", corsheaders)
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -23,6 +25,7 @@ SECRET_KEY =env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DJANGO_DEBUG")
+# print(DEBUG)
 
 ALLOWED_HOSTS = []
 
@@ -37,6 +40,7 @@ EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,11 +52,10 @@ INSTALLED_APPS = [
     'books',
     'journals',
     'papers',
-
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -60,17 +63,48 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'corsheaders.middleware.CorsMiddleware', #added for connection with react 
+    # 'uniSiteBackend.middleware.ForceCORSHeadersMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS =[
+
+# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
+     "http://127.0.0.1:5173",
 ]
+
+
+
+CORS_ALLOW_HEADERS = list(default_headers := (
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+))
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+
+
 
 ROOT_URLCONF = 'uniSiteBackend.urls'
 

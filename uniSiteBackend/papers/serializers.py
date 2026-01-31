@@ -6,12 +6,14 @@ class SubjectListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subject
         fields = ["subject_title", "slug"]
+        read_only_fields = fields
 
 
 class ResourceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Resource
         fields = ["resource_name", "resource_link", "type"]
+        read_only_fields = fields
 
 
 class SubjectDetailSerializer(serializers.ModelSerializer):
@@ -20,6 +22,7 @@ class SubjectDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subject
         fields = ["subject_title", "slug", "resources"]
+        read_only_fields = fields
 
     def get_resources(self, obj):
         grouped = {key: [] for key, _ in Resource.RESOURCE_TYPES}
