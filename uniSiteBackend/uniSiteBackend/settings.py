@@ -28,7 +28,7 @@ DEBUG = env("DJANGO_DEBUG")
 # print(DEBUG)
 
 ALLOWED_HOSTS = [
-    "uni-site-backend-production.up.railway.app",   # Railway assigned URL
+    "uni-site-backend-production-dc51.up.railway.app",   # Railway assigned URL
     "127.0.0.1",                      # optional for local testing
     "localhost",                       # optional for local testing
 ]
